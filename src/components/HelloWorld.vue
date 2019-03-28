@@ -5,7 +5,6 @@
     <p v-text="newName"></p>
     <div class="main">
       {{getCount}}   <br>
-      {{counter1}} dad
     </div>
     <div style="border: 1px solid red;" @click="change">
       <p v-for="(item, key) in info.data.da" :key="key">

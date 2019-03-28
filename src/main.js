@@ -10,8 +10,11 @@ import enLocale from 'element-ui/lib/locale/lang/en'
 import zhLocale from 'element-ui/lib/locale/lang/zh-CN'
 import napierCh from './assets/lang-ch.js'
 import napierEn from './assets/lang-en.js'
+import Axios from 'axios'
+Vue.prototype.$axios = Axios
 
 Vue.config.productionTip = true
+
 Vue.config.errorHandler = (err, vm, info) => {
   console.log(err.stack)
   console.log(vm)
