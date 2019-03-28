@@ -8,10 +8,11 @@ const axios = Axios.create({
 })
 
 let oApi = {
-  'banners': '/gateway/brand-product/banners'
+  'banners': '/gateway/brand-product/banners',
+  'subscribe': '/gateway/brand-product/subscribe'
 }
 
-function _fetch (config) {
+function _fetchData (config) {
   return new Promise((resolve, reject) => {
     axios({...config}).then((res) => {
       if (res.data.resCode === 200) {
@@ -56,12 +57,26 @@ const actions = {
   },
   fetchGetAll ({commit}, config) {
     const dataConfig = {
-      type: 'get',
+      method: 'get',
       url: oApi[config.api],
       params: config.data
     }
     return new Promise((resolve, reject) => {
-      _fetch(dataConfig).then((res) => {
+      _fetchData(dataConfig).then((res) => {
+        resolve(res)
+      }).catch((err) => {
+        reject(err)
+      })
+    })
+  },
+  fetchPostAll ({commit}, config) {
+    const dataConfig = {
+      method: 'post',
+      url: oApi[config.api],
+      data: config.data
+    }
+    return new Promise((resolve, reject) => {
+      _fetchData(dataConfig).then((res) => {
         resolve(res)
       }).catch((err) => {
         reject(err)

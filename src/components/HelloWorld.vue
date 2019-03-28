@@ -59,10 +59,10 @@ export default {
   },
   async mounted () {
     this.increment1()
-    this.$store.dispatch('counter/fetchGetAll', {
-      api: 'banners',
+    this.$store.dispatch('counter/fetchPostAll', {
+      api: 'subscribe',
       data: {
-        bannerPosition: 'index',
+        email: 'geekcell@gmail.com',
         brand: 'rp'
       }
     }).then((res) => {
