@@ -59,6 +59,17 @@ export default {
   },
   async mounted () {
     this.increment1()
+    this.$store.dispatch('counter/fetchGetAll', {
+      api: 'banners',
+      data: {
+        bannerPosition: 'index',
+        brand: 'rp'
+      }
+    }).then((res) => {
+      console.log(res)
+    }).catch((err) => {
+      console.log(err)
+    })
     // console.log(this.$refs.children1.$refs.cld1.innerHTML)
     // console.log(this.go().then((data) => {
     //   console.log(data)

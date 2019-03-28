@@ -11,27 +11,30 @@ let oApi = {
   'banners': '/gateway/brand-product/banners'
 }
 
-function _get (url, params) {
+function _fetch (config) {
   return new Promise((resolve, reject) => {
-    axios.get(url, {params}).then((res) => {
+    axios({...config}).then((res) => {
       if (res.data.resCode === 200) {
         resolve(res.data.data)
       } else {
         reject(res.data)
       }
     }).catch((err) => {
-      console.log(err)
+      reject(err)
     })
   })
 }
 
-_get(oApi.banners, {
-  bannerPosition: 'index',
-  brand: 'rp'
-}).then((res) => {
-  console.log(2222222222)
-  console.log(res)
-})
+// _get({
+//   url: oApi.banners,
+//   params: {
+//     bannerPosition: 'index',
+//     brand: 'rp'
+//   }
+// }).then((res) => {
+//   console.log(2222222222)
+//   console.log(res)
+// })
 
 const state = {
   counter1: 1
@@ -50,6 +53,20 @@ const getters = {
 const actions = {
   increment1 ({commit}) {
     commit('increment')
+  },
+  fetchGetAll ({commit}, config) {
+    const dataConfig = {
+      type: 'get',
+      url: oApi[config.api],
+      params: config.data
+    }
+    return new Promise((resolve, reject) => {
+      _fetch(dataConfig).then((res) => {
+        resolve(res)
+      }).catch((err) => {
+        reject(err)
+      })
+    })
   }
 }
 export default {
