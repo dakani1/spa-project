@@ -6,6 +6,8 @@
     <div class="main">
       {{getCount}}   <br>
     </div>
+    <router-link to='/children1'>children1</router-link>
+    <router-link to='/children2'>children2</router-link>
     <div style="border: 1px solid red;" @click="change">
       <p v-for="(item, key) in info.data.da" :key="key">
         {{ item }}
@@ -60,7 +62,7 @@ export default {
   async mounted () {
     this.increment1()
     this.$store.dispatch('counter/fetchPostAll', {
-      api: 'subscribe',
+      api: 'subcribe',
       data: {
         email: 'geekcell@gmail.com',
         brand: 'rp'

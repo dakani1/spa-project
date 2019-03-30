@@ -7,7 +7,7 @@ const children2 = () => import('@/components/children2.vue')
 Vue.use(Router)
 
 export default new Router({
-  // mode: 'history',
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -28,6 +28,11 @@ export default new Router({
     {
       path: '/children2',
       name: 'children2',
+      component: children2
+    },
+    {
+      path: '*',
+      name: 'notFound',
       component: children2
     }
   ]
