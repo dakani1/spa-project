@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'go',
+  name: 'go gogo',
   data () {
     return {
     }
