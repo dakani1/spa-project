@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'App',
+  name: 'go gogo 1',
   data () {
     return {
     }
