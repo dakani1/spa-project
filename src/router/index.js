@@ -3,11 +3,12 @@ import Router from 'vue-router'
 const HelloWorld = () => import('@/components/HelloWorld')
 const children1 = () => import('@/components/children1.vue')
 const children2 = () => import('@/components/children2.vue')
+const mixin = () => import('@/components/mixin.vue')
 
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  // mode: 'history',
   routes: [
     {
       path: '/',
@@ -29,6 +30,22 @@ export default new Router({
       path: '/children2',
       name: 'children2',
       component: children2
+    },
+    {
+      path: '/mixin',
+      name: 'mixin',
+      component: mixin,
+      meta: {
+        name: 'mixin'
+      }
+    },
+    {
+      path: '/model',
+      name: 'model',
+      component: () => import('../components/model.vue'),
+      meta: {
+        name: 'mixin'
+      }
     },
     {
       path: '*',

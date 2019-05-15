@@ -68,9 +68,22 @@ Vue.use(ElementUI, {
 //   router.push('/children2')
 // })
 
+Vue.mixin({
+  data () {
+    return {
+      msg11: 'gogoo'
+    }
+  },
+  mounted () {
+    document.title = this.$options.title
+  }
+})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  data: {
+    globalData: 'this is global data'
+  },
   router,
   store,
   i18n,
