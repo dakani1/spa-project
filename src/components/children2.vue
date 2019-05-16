@@ -6,6 +6,15 @@
 
 <script>
 export default {
+  mixins: [{
+    mounted () {
+      console.log('mixins mounted 1')
+    }
+  }, {
+    mounted () {
+      console.log('mixins mounted 2')
+    }
+  }],
   beforeCreate () {
     console.log('children2 beforeCreate')
   },

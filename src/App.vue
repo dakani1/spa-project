@@ -2,13 +2,12 @@
   <div id="app">
     <img src="./assets/logo.png">
     <router-view/>
-    {{globalData}}
   </div>
 </template>
 
 <script>
 export default {
-  name: 'go gogo 1',
+  name: 'gogogo1',
   data () {
     return {
     }

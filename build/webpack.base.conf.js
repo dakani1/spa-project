@@ -56,6 +56,10 @@ module.exports = {
         use: 'style-loader!css-loader?minimize'
       },
       {
+        test: /\.less$/,
+        use: 'style-loader!css-loader!less-loader?minimize'
+      },
+      {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {

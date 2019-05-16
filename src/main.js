@@ -81,9 +81,6 @@ Vue.mixin({
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  data: {
-    globalData: 'this is global data'
-  },
   router,
   store,
   i18n,

@@ -48,6 +48,14 @@ export default new Router({
       }
     },
     {
+      path: '/comp',
+      name: 'comp',
+      component: () => import('../common/comp.vue'),
+      meta: {
+        name: 'comp'
+      }
+    },
+    {
       path: '*',
       name: 'notFound',
       component: children2
