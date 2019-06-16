@@ -5,11 +5,32 @@
     <slot name='default' :data='msg'>{{msg}}</slot> <br>
     <slot name='footer'>footer</slot>
     <button @click='increment'>click</button>
+    <hr>
+    <Comp type="primary">2222</Comp>
+    <hr>
+    <div class="column">
+      <div>
+        22222 22222 
+      </div>
+      <div>22222</div>
+      <div>22222</div>
+      <div>22222</div>
+      <p>pppppp</p>
+      <div>22222</div>
+    </div>
+    <div></div>
+    <!-- <dl>
+      <dt>dt</dt>
+      <dd>dd</dd>
+      <dd>ddd</dd>
+    </dl>
+    <div style="resize: both;border: 1px solid red;">33</div> -->
   </div>
 </template>
 
 <script>
 import { mapState, mapGetters, mapMutations } from 'vuex'
+import Comp from './compent.js'
 export default {
   beforeRouteEnter (to, from, next) {
     console.log(from)
@@ -21,6 +42,11 @@ export default {
     return {
       msg: 'default1daf    dfa'
     }
+  },
+  mounted () {
+    console.log(JSON.stringify(Comp))
+    console.log(this.$route.meta)
+    console.log('children1 mounted')
   },
   computed: {
     ...mapState({
@@ -48,10 +74,6 @@ export default {
   beforeMount () {
     console.log('children1 beforeMount')
   },
-  mounted () {
-    console.log(this.$route.meta)
-    console.log('children1 mounted')
-  },
   beforeUpdate () {
     console.log('children1 beforeUpdate')
   },
@@ -63,9 +85,60 @@ export default {
   },
   destroyed () {
     console.log('children1 destroyed')
+  },
+  components: {
+    Comp
   }
 }
 </script>
 
-<style scoped>
+<style lang='less' scoped>
+.column{
+  column-width: 300px;
+  column-gap: 15px;
+  column-rule: 15px solid blue;
+  div{
+    border: 1px solid red;
+    resize: both;
+    height: 50px;
+  }
+  // div:first-line{
+  //   color: yellow;
+  //   font-size: 20px;
+  // }
+}
+
+div:nth-child(1){
+  font-size: 30px;
+  color: darkcyan;
+  font-style: italic;
+}
+
+div:empty{
+  width: 300px;
+  height: 100px;
+  border: 10px solid red;
+  border-image: linear-gradient(left, red, green);
+  border-image: -webkit-linear-gradient(left, red, green);
+}
+
+p:nth-of-type(1){
+  font-size: 30px;
+  color: darkcyan;
+  font-style: italic;
+}
+
+
+// dt+dd{
+//   color: pink;
+//   font-size: 50px;
+// }
+// dd::first-letter{
+//   color: pink;
+// }
+
+// dt~dd{
+//   color: green;
+//    font-size: 50px;
+// }
 </style>
