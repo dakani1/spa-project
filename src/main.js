@@ -11,6 +11,7 @@ import zhLocale from 'element-ui/lib/locale/lang/zh-CN'
 import napierCh from './assets/lang-ch.js'
 import napierEn from './assets/lang-en.js'
 import Axios from 'axios'
+import MyPlugin from './plugins/index.js'
 Vue.prototype.$axios = Axios
 
 Vue.config.productionTip = true
@@ -25,7 +26,7 @@ Vue.config.productionTip = true
 //   Dialog
 // } from 'element-ui'
 // Vue.use('Dialog')
-
+Vue.use(MyPlugin)
 Vue.use(VueI18n)
 
 const messages = {

@@ -1,30 +1,30 @@
 <template>
-  <div ref='cld1'>
+  <div ref="cld1">
     <p>name: {{getCount}}</p>
-    <slot name='header'>header</slot> <br>
-    <slot name='default' :data='msg'>{{msg}}</slot> <br>
-    <slot name='footer'>footer</slot>
-    <button @click='increment'>click</button>
+    <slot name="header">header</slot>
+    <br>
+    <slot name="default" :data="msg">{{msg}}</slot>
+    <br>
+    <slot name="footer">footer</slot>
+    <button @click="increment">click</button>
     <hr>
     <Comp type="primary">2222</Comp>
     <hr>
     <div class="column">
-      <div>
-        22222 22222 
-      </div>
+      <div>22222 22222</div>
       <div>22222</div>
       <div>22222</div>
       <div>22222</div>
       <p>pppppp</p>
       <div>22222</div>
     </div>
-    <div></div>
+    <div @click="change">{{list.name}}</div>
     <!-- <dl>
       <dt>dt</dt>
       <dd>dd</dd>
       <dd>ddd</dd>
     </dl>
-    <div style="resize: both;border: 1px solid red;">33</div> -->
+    <div style="resize: both;border: 1px solid red;">33</div>-->
   </div>
 </template>
 
@@ -32,6 +32,22 @@
 import { mapState, mapGetters, mapMutations } from 'vuex'
 import Comp from './compent.js'
 export default {
+  mixins: [{
+    data () {
+      return {
+        msg: 'mixin - data'
+      }
+    },
+    mounted () {
+      console.log('mixin mounted:' + this.msg)
+      this.$loading1('加载中...')
+      setTimeout(() => {
+        this.$loading1({
+          text: '加载完成'
+        })
+      }, 2000)
+    }
+  }],
   beforeRouteEnter (to, from, next) {
     console.log(from)
     next(vm => {
@@ -40,10 +56,40 @@ export default {
   },
   data () {
     return {
-      msg: 'default1daf    dfa'
+      msg: 'default1daf    dfa',
+      list: {
+        name: [1, 2],
+        sex: [
+          {
+            la: 'dafa'
+          },
+          {
+            la: 'daaa'
+          }
+        ]
+      }
+    }
+  },
+  methods: {
+    change () {
+      this.list.name[1] = {
+        go: 'new'
+      }
+      this.list.sex1 = 'body'
+      this.$set(this.list.name, 1, {
+        go: 'new2'
+      })
+      console.log(this.list)
+    },
+    ...mapMutations({
+      increment: 'operate/increment'
+    }),
+    go () {
+      console.log('调用成功')
     }
   },
   mounted () {
+    console.log('mixin mounted:' + this.msg)
     console.log(JSON.stringify(Comp))
     console.log(this.$route.meta)
     console.log('children1 mounted')
@@ -56,14 +102,6 @@ export default {
     ...mapGetters({
       getCount: 'operate/getCount'
     })
-  },
-  methods: {
-    ...mapMutations({
-      increment: 'operate/increment'
-    }),
-    go () {
-      console.log('调用成功')
-    }
   },
   beforeCreate () {
     console.log('children1 beforeCreate')
@@ -93,11 +131,11 @@ export default {
 </script>
 
 <style lang='less' scoped>
-.column{
+.column {
   column-width: 300px;
   column-gap: 15px;
   column-rule: 15px solid blue;
-  div{
+  div {
     border: 1px solid red;
     resize: both;
     height: 50px;
@@ -108,13 +146,13 @@ export default {
   // }
 }
 
-div:nth-child(1){
+div:nth-child(1) {
   font-size: 30px;
   color: darkcyan;
   font-style: italic;
 }
 
-div:empty{
+div:empty {
   width: 300px;
   height: 100px;
   border: 10px solid red;
@@ -122,12 +160,11 @@ div:empty{
   border-image: -webkit-linear-gradient(left, red, green);
 }
 
-p:nth-of-type(1){
+p:nth-of-type(1) {
   font-size: 30px;
   color: darkcyan;
   font-style: italic;
 }
-
 
 // dt+dd{
 //   color: pink;

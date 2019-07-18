@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-const HelloWorld = () => import('@/components/HelloWorld')
-const children1 = () => import('@/components/children1.vue')
+const HelloWorld = () => import(/* webpackChunkName: 'group-name' */ '@/components/HelloWorld')
+const children1 = () => import(/* webpackChunkName: 'group-name' */ '@/components/children1.vue')
 const children2 = () => import('@/components/children2.vue')
 const mixin = () => import('@/components/mixin.vue')
 

@@ -29,7 +29,7 @@ export default {
   opacity: 0;
   transform: translate()
 }
-.fade-enter-active{
+.fade-enter-active {
   transition: all .5s ease-in;
 }
 .fade-enter-to {
@@ -38,7 +38,7 @@ export default {
 .fade-leave {
   opacity: 1;
 }
-.fade-leave-active{
+.fade-leave-active {
   transition: all .5s ease-in;
 }
 .fade-leave-to {

@@ -16,19 +16,19 @@ export default {
       console.log('mixin created')
     },
     mounted () {
-      console.log('mixin mounted')
+      console.log('mixin mounted:' + this.msg)
     }
   }],
   data () {
     return {
-      msg: 'heolw'
+      msg: 'hook data msg'
     }
   },
   created () {
     console.log('created')
   },
   mounted () {
-    console.log('mounted')
+    console.log('mounted:' + this.msg)
   }
 }
 </script>
