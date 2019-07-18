@@ -18,7 +18,9 @@
       <p>pppppp</p>
       <div>22222</div>
     </div>
-    <div @click="change">{{list.name}}</div>
+    // chang
+    <div @click="change1">{{list.name}}</div>
+    222
     <!-- <dl>
       <dt>dt</dt>
       <dd>dd</dd>
