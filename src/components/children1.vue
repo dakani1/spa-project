@@ -19,7 +19,7 @@
       <div>22222</div>
     </div>
     // chang
-    <div @click="change1">{{list.name}}</div>
+    <div @click="change">{{list.name}}</div>
     222
     <!-- <dl>
       <dt>dt</dt>
